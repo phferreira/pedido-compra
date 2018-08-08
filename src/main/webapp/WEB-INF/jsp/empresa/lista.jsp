@@ -22,7 +22,7 @@
 		<tbody>
 			<c:forEach items="${empresa}" var="empresa">
 				<tr>
-					<td><a href="/pessoa/visualizar/${empresa.codigo}"> ${empresa.codigo}</a></td>
+					<td><a href="/empresa/visualizar/${empresa.codigo}"> ${empresa.codigo}</a></td>
 					<td>${empresa.nome}</td>
 				</tr>
 			</c:forEach>

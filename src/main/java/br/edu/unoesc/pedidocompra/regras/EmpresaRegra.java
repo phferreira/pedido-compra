@@ -1,5 +1,7 @@
 package br.edu.unoesc.pedidocompra.regras;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,16 @@ public class EmpresaRegra implements EmpresaRegraPadrao {
 	public void atualizar(Empresa empresa) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<Empresa> dadosGrid() {
+		return empresaRepository.dadosGrid();
+	}
+
+	@Override
+	public Empresa buscarPorCodigo(Long codigo) {
+		return empresaRepository.findById(codigo).orElse(new Empresa());
 	}
 
 }
