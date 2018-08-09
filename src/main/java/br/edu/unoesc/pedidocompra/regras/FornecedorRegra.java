@@ -1,5 +1,7 @@
 package br.edu.unoesc.pedidocompra.regras;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +28,16 @@ public class FornecedorRegra implements FornecedorRegraPadrao {
 	@Override
 	public void atualizar(Fornecedor fornecedor) {
 		// TODO Auto-generated method stub
+	}
 
+	@Override
+	public List<Fornecedor> dadosGrid() {
+		return fornecedorRepository.dadosGrid();
+	}
+
+	@Override
+	public Fornecedor buscarPorCodigo(Long codigo) {
+		return fornecedorRepository.findById(codigo).orElse(new Fornecedor());
 	}
 
 }

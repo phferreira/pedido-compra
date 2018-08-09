@@ -11,9 +11,15 @@
 	<body>
 		<h1>Pedido de compra</h1>		
 		<form action="" method="post">
+		  	<br>
 			<a href="/empresa/novo">Cadastrar Empresa</a>
+			<br>
 			<a href="/fornecedor/novo">Cadastrar Fornecedor</a>
+			<br>
 			<a href="/pedido/novo">Cadastrar Pedido</a>
+			<br>
+			<a href="/produto/novo">Cadastrar Produto</a>
+			<br>
 		</form>
 		
 	</body>

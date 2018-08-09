@@ -11,57 +11,57 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.edu.unoesc.pedidocompra.model.Empresa;
-import br.edu.unoesc.pedidocompra.regraspadrao.EmpresaRegraPadrao;
+import br.edu.unoesc.pedidocompra.model.Fornecedor;
+import br.edu.unoesc.pedidocompra.regraspadrao.FornecedorRegraPadrao;
 
 @Controller
-@RequestMapping("/empresa")
-public class empresaController {
-
+@RequestMapping("/fornecedor")
+public class fornecedorController {
 	@Autowired
-	private EmpresaRegraPadrao empresaRegraPadrao;
+	private FornecedorRegraPadrao fornecedorRegraPadrao;
 
 	@PostMapping("/salvar")
-	public String salvar(@Valid Empresa empresa, BindingResult erros) {
+	public String salvar(@Valid Fornecedor fornecedor, BindingResult erros) {
 		if (erros.hasErrors()) {
-			return "empresa/novo";
+			return "fornecedor/novo";
 		}
-		empresaRegraPadrao.salvar(empresa);
-		return "redirect:/empresa/listar";
+		fornecedorRegraPadrao.salvar(fornecedor);
+		return "redirect:/fornecedor/listar";
 	}
 
 	@PostMapping("/alterar")
-	public String alterar(@Valid Empresa empresa, BindingResult erros) {
+	public String alterar(@Valid Fornecedor fornecedor, BindingResult erros) {
 		if (erros.hasErrors()) {
-			return "empresa/visualizar";
+			return "fornecedor/visualizar";
 		}
-		empresaRegraPadrao.salvar(empresa);
-		return "redirect:/empresa/listar";
+		fornecedorRegraPadrao.salvar(fornecedor);
+		return "redirect:/fornecedor/listar";
 	}
 	
 	@GetMapping("/listar")
 	private String listar(Model model) {
 		// Model: torna a pessoa acessivel no JSP
-		model.addAttribute("empresa", empresaRegraPadrao.dadosGrid());
+		model.addAttribute("fornecedor", fornecedorRegraPadrao.dadosGrid());
 		//Caminho/nome do JSP que sera renderizado na tela
-		return "empresa/lista";
+		return "fornecedor/lista";
 	}
 
 	@GetMapping("/novo")
 	private String novo(Model model) {
-		return "empresa/novo";
+//		model.addAttribute("cidades", cidadeRepository.findAll());
+		return "fornecedor/novo";
 	}
 	
 	@GetMapping("/deletar/{codigo}")
 	private String deletar(@PathVariable("codigo") Long codigo) {
-		empresaRegraPadrao.delete(new Empresa(codigo));
-		return "redirect:/empresa/listar";
+		fornecedorRegraPadrao.delete(new Fornecedor(codigo));
+		return "redirect:/fornecedor/listar";
 	}
 	
 	@GetMapping("/visualizar/{codigo}")
 	private String visualizar(@PathVariable("codigo") Long codigo, Model model) {
-		model.addAttribute("empresa", empresaRegraPadrao.buscarPorCodigo(codigo));
+		model.addAttribute("fornecedor", fornecedorRegraPadrao.buscarPorCodigo(codigo));
 //		model.addAllAttributes(cidadeRepository.findAll());
-		return "empresa/visualizar";
+		return "fornecedor/visualizar";
 	}
 }

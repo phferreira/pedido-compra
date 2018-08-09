@@ -4,21 +4,21 @@
 <html lang="pt-br">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Alterar pessoa</title>
+<title>Alterar produto</title>
 </head>
 
 <body>
 
-	<form action="/pessoa/alterar" method="post">
+	<form action="/produto/alterar" method="post">
 
-		<input type="hidden" name="codigo" value="${pessoa.codigo}">
+		<input type="hidden" name="codigo" value="${produto.codigo}">
 		
 		<c:import url="_campos.jsp"/>
 
 		<button type="submit">Salvar</button> 
 
-		<a href="/pessoa/listar">Cancelar</a>
-		<a href="/pessoa/deletar/${pessoa.codigo}">Deletar</a>
+		<a href="/produto/listar">Cancelar</a>
+		<a href="/produto/deletar/${produto.codigo}">Deletar</a>
 	</form>
 
 </body>

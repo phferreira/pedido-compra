@@ -28,7 +28,6 @@ public class EmpresaRegra implements EmpresaRegraPadrao {
 	@Override
 	public void atualizar(Empresa empresa) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override

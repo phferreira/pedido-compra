@@ -5,29 +5,25 @@
 <html lang="pt-br">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lista de pessoas</title>
+<title>Lista de fornecedores</title>
 </head>
 
 <body>
 
-	<a href="/pessoa/novo">Nova pessoa</a>
+	<a href="/fornecedor/novo">Nova fornecedor</a>
 	<table>
 		<thead>
 			<tr>
 				<td>Codigo</td>
 				<td>Nome</td>
-				<td>CPF</td>
-				<td>Naturalidade</td>
 			</tr>
 		</thead>
 
 		<tbody>
-			<c:forEach items="${pessoas}" var="pessoa">
+			<c:forEach items="${fornecedor}" var="fornecedor">
 				<tr>
-					<td><a href="/pessoa/visualizar/${pessoa.codigo}"> ${pessoa.codigo}</a></td>
-					<td>${pessoa.nome}</td>
-					<td>${pessoa.cpf}</td>
-					<td>${pessoa.naturalidade.nome}</td>
+					<td><a href="/fornecedor/visualizar/${fornecedor.codigo}"> ${fornecedor.codigo}</a></td>
+					<td>${fornecedor.nome}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

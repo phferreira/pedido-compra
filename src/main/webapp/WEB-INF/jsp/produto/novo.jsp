@@ -5,17 +5,17 @@
 <html lang="pt-br">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cadastro de pessoa</title>
+<title>Cadastro de produtos</title>
 </head>
 
 <body>
 
-	<form action="/pessoa/salvar" method="post">
+	<form action="/produto/salvar" method="post">
 
 		<c:import url="_campos.jsp" />
 
 		<input type="submit" name="enviar"> 
-		<a href="/pessoa/listar">Cancelar</a>
+		<a href="/produto/listar">Cancelar</a>
 	</form>
 
 </body>

@@ -14,25 +14,32 @@ public class Pedido {
 	private long codigo;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Empresa codigo_empresa;
+	private Empresa empresa;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Fornecedor codigo_fornecedor;
+	private Fornecedor fornecedor;
 
-	public Empresa getCodigo_empresa() {
-		return codigo_empresa;
+	public Pedido(long codigo) {
+		this.codigo = codigo;
 	}
 
-	public void setCodigo_empresa(Empresa codigo_empresa) {
-		this.codigo_empresa = codigo_empresa;
+	public Pedido() {
 	}
 
-	public Fornecedor getCodigo_fornecedor() {
-		return codigo_fornecedor;
+	public Empresa getEmpresa() {
+		return empresa;
 	}
 
-	public void setCodigo_fornecedor(Fornecedor codigo_fornecedor) {
-		this.codigo_fornecedor = codigo_fornecedor;
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
 	}
 
 	public long getCodigo() {

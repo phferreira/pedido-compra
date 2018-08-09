@@ -15,6 +15,13 @@ public class Fornecedor {
 	@Column(name = "tx_nome", length = 150, nullable = false)
 	private String nome;
 
+	public Fornecedor(long codigo) {
+		this.codigo = codigo;
+	}
+
+	public Fornecedor() {
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -25,6 +32,10 @@ public class Fornecedor {
 
 	public long getCodigo() {
 		return codigo;
+	}
+
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
 	}
 
 }
