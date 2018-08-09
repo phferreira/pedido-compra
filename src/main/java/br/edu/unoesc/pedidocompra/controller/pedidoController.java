@@ -49,8 +49,6 @@ public class pedidoController {
 	@GetMapping("/listar")
 	private String listar(Model model) {
 		model.addAttribute("pedido", pedidoRegraPadrao.dadosGrid());
-//		model.addAttribute("fornecedores", fornecedorRepository.findAll());
-//		model.addAttribute("empresas", empresaRepository.findAll());
 		return "pedido/lista";
 	}
 
@@ -69,7 +67,7 @@ public class pedidoController {
 	
 	@GetMapping("/visualizar/{codigo}")
 	private String visualizar(@PathVariable("codigo") Long codigo, Model model) {
-		model.addAttribute("pedido", pedidoRegraPadrao.buscarPorCodigo(codigo));
+		model.addAttribute("pedido", pedidoRegraPadrao.localizar(codigo));
 		model.addAttribute("fornecedores", fornecedorRepository.dadosGrid());
 		model.addAttribute("empresas", empresaRepository.findAll());	
 		return "pedido/visualizar";

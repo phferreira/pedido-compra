@@ -14,4 +14,6 @@ public interface PedidoRegraPadrao {
 	List<Pedido> dadosGrid();
 
 	Pedido buscarPorCodigo(Long codigo);
+	
+	Pedido localizar(Long codigo);
 }

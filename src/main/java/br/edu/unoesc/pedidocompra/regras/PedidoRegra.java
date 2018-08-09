@@ -40,4 +40,9 @@ public class PedidoRegra implements PedidoRegraPadrao {
 		return pedidoRepository.findById(codigo).orElse(new Pedido());
 	}
 
+	@Override
+	public Pedido localizar(Long codigo) {
+		return pedidoRepository.localizar(codigo);
+	}
+
 }
