@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,15 +13,18 @@
 	<form action="/pedido/alterar" method="post">
 
 		<input type="hidden" name="codigo" value="${pedido.codigo}">
-		
-		<c:import url="_campos.jsp"/>
 
-		<button type="submit">Salvar</button> 
+		<c:import url="_campos.jsp" />
 
-		<a href="/pedido/listar">Cancelar</a>
-		<a href="/pedido/deletar/${pedido.codigo}">Deletar</a>
+		<button type="submit">Salvar</button>
+
+		<a href="/pedido/listar">Cancelar</a> <a
+			href="/pedido/deletar/${pedido.codigo}">Deletar</a> 
+		<br>
+		<br>
+		<br>
 	</form>
-
+	<c:import url="listaitem.jsp" />
 </body>
 
 </html>

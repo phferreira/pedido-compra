@@ -15,20 +15,43 @@ public class PedidoItem {
 	private long codigo;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Pedido codigo_pedido;
+	private Pedido pedido;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Produto codigo_produto;
+	private Produto produto;
 
 	@Column(name = "qt_quantidade", length = 3, nullable = false)
 	private Double quantidade;
 
-	public Produto getCodigo_produto() {
-		return codigo_produto;
+	public PedidoItem() {
 	}
 
-	public void setCodigo_produto(Produto codigo_produto) {
-		this.codigo_produto = codigo_produto;
+	public PedidoItem(long codigo) {
+		this.codigo = codigo;
+	}
+
+	public long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 
 	public Double getQuantidade() {
@@ -39,16 +62,6 @@ public class PedidoItem {
 		this.quantidade = quantidade;
 	}
 
-	public Pedido getCodigo_pedido() {
-		return codigo_pedido;
-	}
-
-	public void setCodigo_pedido(Pedido codigo_pedido) {
-		this.codigo_pedido = codigo_pedido;
-	}
-
-	public long getCodigo() {
-		return codigo;
-	}
+	
 
 }

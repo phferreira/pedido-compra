@@ -1,5 +1,7 @@
 package br.edu.unoesc.pedidocompra.regras;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +28,16 @@ public class PedidoItemRegra implements PedidoItemRegraPadrao {
 	@Override
 	public void atualizar(PedidoItem pedidoItem) {
 		// TODO Auto-generated method stub
+	}
 
+	@Override
+	public List<PedidoItem> dadosGrid(Long codigo) {
+		return pedidoItemRepository.dadosGrid(codigo);
+	}
+
+	@Override
+	public PedidoItem localizar(Long codigo) {
+		return pedidoItemRepository.findById(codigo).orElse(new PedidoItem());
 	}
 
 }

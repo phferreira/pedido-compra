@@ -10,11 +10,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.unoesc.pedidocompra.model.Pedido;
+import br.edu.unoesc.pedidocompra.model.PedidoItem;
+import br.edu.unoesc.pedidocompra.regraspadrao.PedidoItemRegraPadrao;
 import br.edu.unoesc.pedidocompra.regraspadrao.PedidoRegraPadrao;
 import br.edu.unoesc.pedidocompra.repository.EmpresaRepository;
 import br.edu.unoesc.pedidocompra.repository.FornecedorRepository;
+import br.edu.unoesc.pedidocompra.repository.PedidoItemRepository;
+import br.edu.unoesc.pedidocompra.repository.ProdutoRepository;
 
 @Controller
 @RequestMapping("/pedido")
@@ -27,7 +32,25 @@ public class pedidoController {
 	
 	@Autowired
 	private EmpresaRepository empresaRepository;
+	
+	@Autowired
+	private PedidoItemRepository pedidoItemRepository;
+	
+	@Autowired
+	private ProdutoRepository produtoRepository;
+	
+	@Autowired
+	private PedidoItemRegraPadrao pedidoItemRegraPadrao;
 
+	@PostMapping("/salvar/{codigo}")
+	public String salvar(@Valid PedidoItem pedidoItem, BindingResult erros) {
+		if (erros.hasErrors()) {
+			return "pedido/listar";
+		}
+		pedidoItemRegraPadrao.salvar(pedidoItem);
+		return "redirect:/pedido/visualizar/{codigo}";
+	}
+	
 	@PostMapping("/salvar")
 	public String salvar(@Valid Pedido pedido, BindingResult erros) {
 		if (erros.hasErrors()) {
@@ -70,6 +93,14 @@ public class pedidoController {
 		model.addAttribute("pedido", pedidoRegraPadrao.localizar(codigo));
 		model.addAttribute("fornecedores", fornecedorRepository.dadosGrid());
 		model.addAttribute("empresas", empresaRepository.findAll());	
+		model.addAttribute("produtos", produtoRepository.dadosGrid());	
+		model.addAttribute("pedidoitens", pedidoItemRepository.dadosGrid(codigo));
 		return "pedido/visualizar";
 	}
+	
+	@RequestMapping(value="/visualizar/{codigo}", params="adicionar",method=RequestMethod.POST)
+	 public void action1()
+	    {
+	        System.out.println("Action1 block called");
+	    }
 }

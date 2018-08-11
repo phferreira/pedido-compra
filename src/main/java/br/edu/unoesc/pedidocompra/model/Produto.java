@@ -28,6 +28,14 @@ public class Produto {
 	public Produto() {
 	}
 
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -52,10 +60,7 @@ public class Produto {
 		this.preco = preco;
 	}
 
-	public Long getCodigo() {
-		return codigo;
-	}
-	
+
 	
 
 }

@@ -30,8 +30,12 @@ public class Pedido {
 		return empresa;
 	}
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
+	public long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
 	}
 
 	public Fornecedor getFornecedor() {
@@ -42,8 +46,8 @@ public class Pedido {
 		this.fornecedor = fornecedor;
 	}
 
-	public long getCodigo() {
-		return codigo;
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 
 }

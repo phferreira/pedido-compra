@@ -12,7 +12,7 @@
 
 	<form action="/pessoa/salvar" method="post">
 
-		<c:import url="_campos.jsp" />
+		<c:import url="listaitem.jsp" />
 
 		<input type="submit" name="enviar"> 
 		<a href="/pessoa/listar">Cancelar</a>
