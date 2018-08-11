@@ -42,13 +42,19 @@ public class pedidoController {
 	@Autowired
 	private PedidoItemRegraPadrao pedidoItemRegraPadrao;
 
-	@PostMapping("/salvar/{codigo}")
+	@PostMapping("/{codigo}/salvar")
 	public String salvar(@Valid PedidoItem pedidoItem, BindingResult erros) {
 		if (erros.hasErrors()) {
 			return "pedido/listar";
 		}
 		pedidoItemRegraPadrao.salvar(pedidoItem);
 		return "redirect:/pedido/visualizar/{codigo}";
+	}
+	
+	@GetMapping("{pedido}/item/{codigo}/deletar")
+	private String deletarItem(@PathVariable("codigo") Long codigo) {
+		pedidoItemRegraPadrao.delete(new PedidoItem(codigo));
+		return "redirect:/pedido/visualizar/{pedido}";
 	}
 	
 	@PostMapping("/salvar")

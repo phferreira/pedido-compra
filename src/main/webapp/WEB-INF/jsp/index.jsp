@@ -20,8 +20,6 @@
 			<br>
 			<a href="/produto/novo">Cadastrar Produto</a>
 			<br>
-			<a href="/pedidoitem/novo">Cadastrar Item Pedido</a>
-			<br>
 		</form>
 		
 	</body>

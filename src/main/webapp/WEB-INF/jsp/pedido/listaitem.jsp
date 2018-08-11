@@ -14,20 +14,25 @@
 	<tbody>
 		<c:forEach items="${pedidoitens}" var="pedidoitem">
 			<tr>
-				<td><input name="remover" type="button" id="remover"
-					class="remover" value="-"></td>
-				<td><a href="/pedidoitem/visualizar/${pedidoitem.codigo}">${pedidoitem.codigo}</a></td>
+				<td><a href="/pedido/${pedidoitem.pedido.codigo}/item/${pedidoitem.codigo}/deletar"><input
+						name="deletar" type="button" id="deletar" class="deletar"
+						value="-"></a></td>
+				<td>${pedidoitem.codigo}</td>
 				<td>${pedidoitem.quantidade}</td>
-<%-- 				<td>${pedidoitem.pedido.codigo}</td> --%>
-				<td>${pedidoitem.produto.codigo} - ${pedidoitem.produto.nome}</td>
+				<%-- 				<td>${pedidoitem.pedido.codigo}</td> --%>
+				<td>${pedidoitem.produto.codigo}-${pedidoitem.produto.nome}</td>
 			</tr>
 		</c:forEach>
-		<form action="/pedido/salvar/${pedido.codigo}" method="post">
-			<input type="hidden" name="pedido.codigo" id="pedido.codigo" value="${pedido.codigo}">
+		
+		<form action="/pedido/${pedido.codigo}/salvar" method="post">
+			<input type="hidden" name="pedido.codigo" id="pedido.codigo"
+				value="${pedido.codigo}">
 			<tr>
-				<td><input name="adicionar" type="submit" id="adicionar" value="+"></td>
+				<td><input name="adicionar" type="submit" id="adicionar"
+					value="+"></td>
 				<td></td>
-				<td><input type="text" name="quantidade" id="quantidade" value=""></td>
+				<td><input type="text" name="quantidade" id="quantidade"
+					value=""></td>
 				<td><c:import url="_campos-produto.jsp" /></td>
 			</tr>
 		</form>
